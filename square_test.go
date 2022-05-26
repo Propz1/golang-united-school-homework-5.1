@@ -4,6 +4,10 @@ import (
 	"testing"
 )
 
+const (
+	err string = "Expected result %v != %v real result"
+)
+
 var (
 	p Point = Point{x: 10, y: 7}
 
@@ -17,12 +21,12 @@ func TestSquare(t *testing.T) {
 
 	t.Run("End", func(t *testing.T) {
 
-		var result = Point{x: 5, y: 12}
+		var result = Point{x: 15, y: 12}
 
 		realResult := input.End()
 
 		if realResult != result {
-			t.Errorf("Expected result %v != %v real result", result, realResult)
+			t.Errorf(err, result, realResult)
 		}
 
 	})
@@ -34,7 +38,7 @@ func TestSquare(t *testing.T) {
 		realResult := input.Area()
 
 		if realResult != result {
-			t.Errorf("Expected result %v != %v real result", result, realResult)
+			t.Errorf(err, result, realResult)
 		}
 
 	})
@@ -46,7 +50,7 @@ func TestSquare(t *testing.T) {
 		realResult := input.Perimeter()
 
 		if realResult != result {
-			t.Errorf("Expected result %v != %v real result", result, realResult)
+			t.Errorf(err, result, realResult)
 		}
 
 	})
